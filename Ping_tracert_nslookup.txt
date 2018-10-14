@@ -31,4 +31,30 @@ tracert -d www.google.com
 In command line (as a admin user)
 nslookup
 
+# small > at the end of the output lets you enter additional parameters
+
+nslookup lifewire.com
+
+# non-authoritative answers" refer to DNS records kept on external DNS servers, which they obtained from the "authoritative" servers that provide the original source of the data.
+
+>set type=ns
+>lifewire.com
+
+# An authoritative address lookup can be performed by specifying one of the domain's registered nameservers. nslookup then uses that server instead of the default DNS server information of the local system
+
+nslookup lifewire.com ns1.p30.dynect.net
+
+
+# The output no longer mentions "non-authoritative" data because the nameserver ns1.p30.dynect is a primary nameserver for Lifewire.com, as listed in the "NS record" portion of its DNS entries.
+
+
+# Mail Server Lookup
+
+> set type=mx
+> lifewire.com
+# To search for mail server information on a particular domain, nslookup uses the MX record feature of DNS. Some sites, like Lifewire.com, support both primary and backup servers.
+
+
+
+
 
